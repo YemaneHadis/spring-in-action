@@ -7,12 +7,13 @@ import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.lang.reflect.Type;
 
 @Data
 @Entity
 @NoArgsConstructor
-public class Ingredient {
+public class Ingredient implements Serializable {
     @Id
     @GeneratedValue
     private Long id;

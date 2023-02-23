@@ -1,5 +1,10 @@
 
 spring:
+  artemis:
+    port: 8161
+    user: afroweb
+    password: afroweb
+    host: 127.0.0.1
   datasource:
     url: jdbc:postgresql://localhost:5432/yemane
     username: postgres
@@ -7,10 +12,28 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
-    show-sql: true
+#    show-sql: true
     propserties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     properties:
       hibernate:
         format_sql: true
+#  rabbitmq:
+#      host: 127.0.0.1
+#      port: 8161
+#      username: afroweb
+#      password: afroweb
+#      template:
+#        exchange: tacocloud.order
+#        routing-key: kitchens.central
+#        receive-timeout: 30000
+  kafka:
+    bootstrap-servers: 172.0.0.1:9092
+    template:
+      default-topic: tacocloud.orders.topic
+    consumer:
+      group-id: group1
+#  jms:
+#    template:
+#      default-destination: tacocloud.order.queue

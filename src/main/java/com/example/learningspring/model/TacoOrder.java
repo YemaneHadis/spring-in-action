@@ -1,9 +1,6 @@
 package com.example.learningspring.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -27,7 +24,7 @@ public class TacoOrder  implements Serializable {
     private String ccNumber;
     private String ccExpiration;
     private String ccCvv;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Taco> tacos = new ArrayList<>();
 
     public void addTaco(Taco taco){
